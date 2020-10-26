@@ -1,0 +1,19 @@
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "echo \"Success: mode development\" && exit 0",
+    "staging": "echo \"Success: mode staging\" && exit 0",
+    "prod": "echo \"Success: mode production\" && exit 0",
+    "test": "echo \"Success: mode test\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0"
+  }
+}
