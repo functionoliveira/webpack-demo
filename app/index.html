@@ -3,6 +3,9 @@
     <title>Webpack demo - getting started</title>
   </head>
   <body>
-    <script src="./src/index.js"></script>
+    <h2><%= process.env.ENV_REFERENCE %></h2>
+    <div><img src="<%=require('./src/images/webpack.png').default%>" /></div>
+    <caption>Imagem 1: Representação gráfica do funcionamento do webpack.</caption>
+    <h2><a href="https://webpack.js.org/">Site Oficial</a></h2>
   </body>
 </html>

@@ -1,9 +1,9 @@
 import './styles/main.scss';
 
 function component() {
-    const element = document.createElement('div');
+    const element = document.createElement('h1');
     element.innerHTML = ['Hello', 'webpack'].join(' ');
     return element;
 }
 
-document.body.appendChild(component());
+document.body.prepend(component());

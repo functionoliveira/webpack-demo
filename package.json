@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --mode development",
-    "staging": "echo \"Success: mode staging\" && exit 0",
-    "prod": "echo \"Success: mode production\" && exit 0",
+    "dev": "webpack-dev-server --open --mode=development",
+    "staging": "webpack --mode=staging",
+    "prod": "webpack --mode=production",
     "test": "echo \"Success: mode test\" && exit 0"
   },
   "keywords": [],
@@ -14,12 +14,25 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "autoprefixer": "^10.0.1",
     "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^5.0.0",
+    "dotenv-webpack": "^5.0.0",
     "file-loader": "^6.2.0",
+    "html-loader": "^1.3.2",
     "html-webpack-plugin": "^4.5.0",
+    "image-minimizer-webpack-plugin": "^1.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-pngquant": "^9.0.1",
+    "imagemin-svgo": "^8.0.0",
     "mini-css-extract-plugin": "^1.2.1",
     "postcss-loader": "^4.0.4",
+    "postcss-preset-env": "^6.7.0",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.4",
     "style-loader": "^2.0.0",
@@ -28,5 +41,7 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "core-js": "^2.6.11"
+  }
 }

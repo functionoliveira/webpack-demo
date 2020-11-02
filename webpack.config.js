@@ -1,10 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './app/src/index.js',
-  devtool: "teste",
+  devtool: "eval-source-map",
   optimization: {
     minimize: true,
     splitChunks: { chunks: "all" },
@@ -24,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.(png|gif|jpg|mp4)$/,
-        loader: "url-loader",
+        loader: "file-loader",
         options: {
           limit: 8000,
         },
@@ -32,7 +34,7 @@ module.exports = {
       {
         test: /\.(ttf|eot|woff|woff2)$/,
         use: {
-          loader: "file-loader",
+          loader: "file-loader"
         },
       },
       {
@@ -67,9 +69,29 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new Dotenv(),
+    new HtmlWebpackPlugin({ template: "./app/index.html" }),
     new MiniCssExtractPlugin({
       filename: "main.[hash].css",
+    }),
+    new ImageMinimizerPlugin({
+      minimizerOptions: {
+        plugins: [
+          ['gifsicle', { interlaced: true }],
+          ['jpegtran', { progressive: true }],
+          ['optipng', { optimizationLevel: 5 }],
+          [
+            'svgo',
+            {
+              plugins: [
+                {
+                  removeViewBox: false,
+                },
+              ],
+            },
+          ],
+        ],
+      },
     })
   ]
 };
